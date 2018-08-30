@@ -14,12 +14,6 @@
 # limitations under the License.
 #
 
-MEMSIZE            ?= 0x2000000
-KERNEL_ASPACE_BASE := 0xFFFFFFFF00000000
-KERNEL_ASPACE_SIZE := 0x100000000
-USER_ASPACE_BASE   := 0x0000000000008000
-USER_ASPACE_SIZE   := 0x0000000001ff8000
-
 TARGET := imx8m
 
 include project/imx8-inc.mk
