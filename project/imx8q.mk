@@ -19,4 +19,5 @@ TARGET := imx8q
 # imx8q/x use lpuart for UART IP
 IMX_USE_LPUART := true
 
+SMP_MAX_CPUS := 10
 include project/imx8-inc.mk
