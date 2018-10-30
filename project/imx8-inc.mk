@@ -95,6 +95,7 @@ TRUSTY_ALL_USER_TASKS := \
 	trusty/user/app/avb \
 	trusty/hardware/nxp/app/hwcrypto \
 	trusty/user/app/keymaster \
+	trusty/user/app/gatekeeper \
 	trusty/user/app/storage \
 
 # This project requires trusty IPC
