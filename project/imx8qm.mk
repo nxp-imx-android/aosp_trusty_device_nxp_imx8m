@@ -20,5 +20,5 @@ TARGET := imx8q
 IMX_USE_LPUART := true
 
 SMP_MAX_CPUS := 10
-STORAGE_RPMB_BLOCK_COUNT := 512
+STORAGE_RPMB_BLOCK_COUNT := 2048
 include project/imx8-inc.mk
