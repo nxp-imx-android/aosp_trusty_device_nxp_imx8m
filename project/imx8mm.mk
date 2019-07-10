@@ -16,4 +16,6 @@
 
 TARGET := imx8mm
 
+WITH_SNVS_DRIVER := true
+
 include project/imx8-inc.mk
