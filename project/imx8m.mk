@@ -16,4 +16,6 @@
 
 TARGET := imx8m
 
+#limit the RPMB storage size to 120KB
+STORAGE_RPMB_BLOCK_COUNT := 240
 include project/imx8-inc.mk
