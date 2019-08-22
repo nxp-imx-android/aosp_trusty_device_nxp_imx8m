@@ -70,9 +70,6 @@ GLOBAL_DEFINES += APP_STORAGE_RPMB_BLOCK_COUNT=$(STORAGE_RPMB_BLOCK_COUNT)
 
 GLOBAL_DEFINES += \
 	WITH_LIB_VERSION=1 \
-	USER_32BIT=1 \
-
-ARM_WITHOUT_VFP_NEON := true
 
 # ARM suggest to use system registers to access GICv3/v4 registers
 GLOBAL_DEFINES += ARM_GIC_USE_SYSTEM_REG=1
@@ -85,7 +82,7 @@ MODULES += \
 	lib/trusty \
 	lib/memlog \
 
-TRUSTY_USER_ARCH := arm
+TRUSTY_USER_ARCH := arm64
 
 #
 # user tasks to be compiled into lk.bin
