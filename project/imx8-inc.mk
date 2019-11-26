@@ -35,6 +35,8 @@ MEMSIZE           := 0x2000000
 ARCH := arm
 endif
 
+GIC_VERSION := 3
+
 ARM_CPU ?= armv8-a
 
 WITH_LIB_SM_MONITOR := 0
