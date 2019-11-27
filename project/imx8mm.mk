@@ -18,4 +18,7 @@ TARGET := imx8mm
 
 WITH_SNVS_DRIVER := true
 
+#Enlarge imx8mm storage size to 2048 blocks.
+STORAGE_RPMB_BLOCK_COUNT = 2048
+
 include project/imx8-inc.mk
