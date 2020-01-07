@@ -35,6 +35,11 @@ MEMSIZE           := 0x2000000
 ARCH := arm
 endif
 
+ifeq (true,$(call TOBOOL,$(BOOT_FROM_A72)))
+GLOBAL_DEFINES += \
+	WITH_BOOT_FROM_A72=1
+endif
+
 GIC_VERSION := 3
 
 ARM_CPU ?= armv8-a
