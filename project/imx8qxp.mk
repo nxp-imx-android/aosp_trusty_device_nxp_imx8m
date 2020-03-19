@@ -20,4 +20,5 @@ TARGET := imx8q
 IMX_USE_LPUART := true
 
 STORAGE_RPMB_BLOCK_COUNT := 2048
+MEMBASE           := 0xFE000000
 include project/imx8-inc.mk

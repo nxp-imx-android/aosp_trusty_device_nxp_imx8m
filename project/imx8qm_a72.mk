@@ -15,4 +15,5 @@
 #
 
 BOOT_FROM_A72 := true
+MEMBASE           := 0xFE000000
 include project/imx8qm.mk
