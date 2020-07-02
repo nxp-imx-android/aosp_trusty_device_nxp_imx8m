@@ -86,9 +86,9 @@ GLOBAL_DEFINES += ARM_GIC_USE_SYSTEM_REG=1
 # Modules to be compiled into lk.bin
 #
 MODULES += \
-	lib/sm \
-	lib/trusty \
-	lib/memlog \
+	trusty/kernel/lib/sm \
+	trusty/kernel/lib/trusty \
+	trusty/kernel/lib/memlog \
 
 TRUSTY_USER_ARCH := arm64
 
