@@ -110,4 +110,9 @@ TRUSTY_ALL_USER_TASKS := \
 # This project requires trusty IPC
 WITH_TRUSTY_IPC := true
 
+# Build unittests.
+ifeq (true,$(call TOBOOL,$(BUILD_UNITTEST)))
+include trusty/user/base/usertests-inc.mk
+endif
+
 EXTRA_BUILDRULES += app/trusty/user-tasks.mk
