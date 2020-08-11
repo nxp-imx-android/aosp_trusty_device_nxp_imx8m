@@ -89,6 +89,7 @@ MODULES += \
 	trusty/kernel/lib/sm \
 	trusty/kernel/lib/trusty \
 	trusty/kernel/lib/memlog \
+	trusty/kernel/services/smc \
 
 TRUSTY_USER_ARCH := arm64
 
