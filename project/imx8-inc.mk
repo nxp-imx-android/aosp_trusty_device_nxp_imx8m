@@ -113,6 +113,10 @@ WITH_TRUSTY_IPC := true
 
 # Build unittests.
 ifeq (true,$(call TOBOOL,$(BUILD_UNITTEST)))
+# include both the kerneltests and usertests may make the bootloader exceed
+# the size limits (4MB), make the kerneltests as disabled by default, users
+# need to enable it manually.
+#include trusty/kernel/kerneltests-inc.mk
 include trusty/user/base/usertests-inc.mk
 endif
 
