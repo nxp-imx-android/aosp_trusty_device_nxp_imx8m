@@ -82,6 +82,9 @@ GLOBAL_DEFINES += \
 # ARM suggest to use system registers to access GICv3/v4 registers
 GLOBAL_DEFINES += ARM_GIC_USE_SYSTEM_REG=1
 
+# include software implementation of a SPI loopback device
+WITH_SW_SPI_LOOPBACK ?= true
+
 #
 # Modules to be compiled into lk.bin
 #
