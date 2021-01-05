@@ -111,7 +111,7 @@ TRUSTY_USER_ARCH := arm64
 TRUSTY_PREBUILT_USER_TASKS :=
 
 # compiled from source
-TRUSTY_ALL_USER_TASKS := \
+TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/avb \
 	trusty/hardware/nxp/app/hwcrypto \
 	trusty/user/app/keymaster \

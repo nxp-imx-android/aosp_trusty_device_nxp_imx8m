@@ -23,3 +23,15 @@ STORAGE_RPMB_BLOCK_COUNT = 2048
 MEMBASE           := 0x56000000
 
 include project/imx8-inc.mk
+
+TRUSTY_BUILTIN_USER_TASKS += \
+	trusty/user/app/confirmationui \
+	trusty/hardware/nxp/app/secure_fb_impl \
+	trusty/hardware/nxp/app/hwsecure
+
+# Change this to specify the LCDIF device on imx8mp
+GLOBAL_DEFINES += IMX8MP_LCDIF_INDEX=1
+
+WITH_TUI_SUPPORT := true
+
+CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params

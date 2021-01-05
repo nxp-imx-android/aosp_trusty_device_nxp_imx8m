@@ -23,3 +23,12 @@ STORAGE_RPMB_BLOCK_COUNT = 2048
 MEMBASE           := 0xBE000000
 
 include project/imx8-inc.mk
+
+TRUSTY_BUILTIN_USER_TASKS += \
+	trusty/user/app/confirmationui \
+	trusty/hardware/nxp/app/secure_fb_impl \
+	trusty/hardware/nxp/app/hwsecure
+
+WITH_TUI_SUPPORT := true
+
+CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
