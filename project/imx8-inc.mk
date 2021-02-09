@@ -79,6 +79,10 @@ GLOBAL_DEFINES += APP_STORAGE_RPMB_BLOCK_COUNT=$(STORAGE_RPMB_BLOCK_COUNT)
 GLOBAL_DEFINES += \
 	WITH_LIB_VERSION=1 \
 
+# uncomment this to enable rpmb storage erase option, note this option should only be used for developer
+#GLOBAL_DEFINES += \
+#	SUPPORT_ERASE_RPMB=1
+
 # ARM suggest to use system registers to access GICv3/v4 registers
 GLOBAL_DEFINES += ARM_GIC_USE_SYSTEM_REG=1
 
