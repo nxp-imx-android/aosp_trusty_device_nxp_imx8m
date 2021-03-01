@@ -76,6 +76,9 @@ STORAGE_RPMB_BLOCK_COUNT ?= 256
 # Set max RPMB block to 256 means it will get 256*512=128KB space to store critical information.
 GLOBAL_DEFINES += APP_STORAGE_RPMB_BLOCK_COUNT=$(STORAGE_RPMB_BLOCK_COUNT)
 
+# delete this if forbid provisioning
+STATIC_SYSTEM_STATE_FLAG_PROVISIONING_ALLOWED := 1
+
 GLOBAL_DEFINES += \
 	WITH_LIB_VERSION=1 \
 
@@ -110,6 +113,7 @@ TRUSTY_ALL_USER_TASKS := \
 	trusty/user/app/keymaster \
 	trusty/user/app/gatekeeper \
 	trusty/user/app/storage \
+	trusty/user/base/app/system_state_server_static \
 
 # This project requires trusty IPC
 WITH_TRUSTY_IPC := true
