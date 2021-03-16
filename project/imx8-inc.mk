@@ -76,6 +76,9 @@ STORAGE_RPMB_BLOCK_COUNT ?= 256
 # Set max RPMB block to 256 means it will get 256*512=128KB space to store critical information.
 GLOBAL_DEFINES += APP_STORAGE_RPMB_BLOCK_COUNT=$(STORAGE_RPMB_BLOCK_COUNT)
 
+# Set the whole rpmb storage size as 8192 blocks which is 8192*512=4MB for i.MX 8.
+GLOBAL_DEFINES += STORAGE_TOTAL_RPMB_BLOCK_COUNT=8192
+
 GLOBAL_DEFINES += \
 	WITH_LIB_VERSION=1 \
 
