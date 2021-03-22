@@ -21,5 +21,6 @@ TARGET := imx8mp
 #Enlarge imx8mp storage size to 2048 blocks.
 STORAGE_RPMB_BLOCK_COUNT = 2048
 MEMBASE           := 0x56000000
+WITH_SNVS_DRIVER := true
 
 include project/imx8-inc.mk
