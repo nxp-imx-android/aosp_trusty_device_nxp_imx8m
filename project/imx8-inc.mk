@@ -27,7 +27,7 @@ MEMBASE           ?= 0xFE000000
 KERNEL_ASPACE_BASE := 0xFFFFFFFF00000000
 KERNEL_ASPACE_SIZE := 0x100000000
 USER_ASPACE_BASE   := 0x0000000000008000
-USER_ASPACE_SIZE   := 0x0000000001ff8000
+USER_ASPACE_SIZE   := 0x00000000F0000000
 ARCH := arm64
 else
 KERNEL_BASE       := 0xFE000000
@@ -53,7 +53,7 @@ ARM_MERGE_FIQ_IRQ := true
 # In imx8, the TZASC will he handled by SPL or ATF
 WITH_TZASC := false
 
-GLOBAL_DEFINES += MMU_USER_SIZE_SHIFT=25 # 32 MB user-space address space
+#GLOBAL_DEFINES += MMU_USER_SIZE_SHIFT=25 # 32 MB user-space address space
 
 GLOBAL_DEFINES += TIMER_ARM_GENERIC_SELECTED=CNTPS
 
@@ -128,6 +128,12 @@ ifeq (true,$(call TOBOOL,$(BUILD_UNITTEST)))
 # need to enable it manually.
 #include trusty/kernel/kerneltests-inc.mk
 include trusty/user/base/usertests-inc.mk
+endif
+
+ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
+TRUSTY_BUILTIN_USER_TASKS += \
+	trusty/private/widevine \
+
 endif
 
 EXTRA_BUILDRULES += app/trusty/user-tasks.mk

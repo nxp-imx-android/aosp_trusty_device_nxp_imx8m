@@ -25,9 +25,16 @@ MEMBASE           := 0x56000000
 include project/imx8-inc.mk
 
 TRUSTY_BUILTIN_USER_TASKS += \
-	trusty/user/app/confirmationui \
-	trusty/hardware/nxp/app/secure_fb_impl \
 	trusty/hardware/nxp/app/hwsecure
+
+# Due Builtin confirmationui TA will make bootloader.imx larger than 4MB when enabled Widevine L1.
+# So make reverse option as below.
+ifneq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
+TRUSTY_BUILTIN_USER_TASKS += \
+       trusty/user/app/confirmationui \
+       trusty/hardware/nxp/app/secure_fb_impl \
+
+endif
 
 # Change this to specify the LCDIF device on imx8mp
 GLOBAL_DEFINES += IMX8MP_LCDIF_INDEX=1
