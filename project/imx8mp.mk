@@ -25,14 +25,14 @@ MEMBASE           := 0x56000000
 include project/imx8-inc.mk
 
 TRUSTY_BUILTIN_USER_TASKS += \
-	trusty/hardware/nxp/app/hwsecure
+    trusty/hardware/nxp/app/hwsecure
 
 # Due Builtin confirmationui TA will make bootloader.imx larger than 4MB when enabled Widevine L1.
 # So make reverse option as below.
 ifneq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_BUILTIN_USER_TASKS += \
-       trusty/user/app/confirmationui \
-       trusty/hardware/nxp/app/secure_fb_impl \
+    trusty/user/app/confirmationui \
+    trusty/hardware/nxp/app/secure_fb_impl \
 
 endif
 
@@ -42,3 +42,9 @@ GLOBAL_DEFINES += IMX8MP_LCDIF_INDEX=1
 WITH_TUI_SUPPORT := true
 
 CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
+
+ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
+TRUSTY_BUILTIN_USER_TASKS += \
+    trusty/private/widevine \
+
+endif
