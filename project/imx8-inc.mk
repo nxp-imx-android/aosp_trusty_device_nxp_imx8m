@@ -100,6 +100,7 @@ MODULES += \
 	trusty/kernel/lib/trusty \
 	trusty/kernel/lib/memlog \
 	trusty/kernel/services/smc \
+	trusty/kernel/services/apploader \
 
 TRUSTY_USER_ARCH := arm64
 
@@ -116,7 +117,29 @@ TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/hardware/nxp/app/hwcrypto \
 	trusty/user/app/keymaster \
 	trusty/user/app/gatekeeper \
+	trusty/user/base/app/apploader \
 	trusty/user/app/storage \
+
+APPLOADER_ALLOW_NS_CONNECT := true
+
+PROJECT_KEYS_DIR := trusty/device/nxp/imx8/project/keys
+
+APPLOADER_SIGN_PRIVATE_KEY_0_FILE := \
+	$(PROJECT_KEYS_DIR)/privateKey0.der
+
+APPLOADER_SIGN_PUBLIC_KEY_0_FILE := \
+	$(PROJECT_KEYS_DIR)/publicKey0.der
+
+APPLOADER_SIGN_PRIVATE_KEY_1_FILE := \
+	$(PROJECT_KEYS_DIR)/privateKey1.der
+
+APPLOADER_SIGN_PUBLIC_KEY_1_FILE := \
+	$(PROJECT_KEYS_DIR)/publicKey1.der
+
+APPLOADER_ENCRYPT_KEY_0_FILE := \
+	$(PROJECT_KEYS_DIR)/aeskey.bin
+
+APPLOADER_SIGN_KEY_ID ?= 0
 
 # This project requires trusty IPC
 WITH_TRUSTY_IPC := true
