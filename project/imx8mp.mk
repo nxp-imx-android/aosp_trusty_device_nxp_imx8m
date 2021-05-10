@@ -37,4 +37,4 @@ WITH_TUI_SUPPORT := true
 CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
 
 TRUSTY_LOADABLE_USER_TASKS += \
-    trusty/private/widevine \
+    trusty/private/widevine/hwoemcrypto \
