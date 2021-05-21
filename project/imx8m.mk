@@ -18,4 +18,7 @@ TARGET := imx8m
 
 STORAGE_RPMB_BLOCK_COUNT := 2048
 MEMBASE           := 0xFE000000
+
+WITH_SNVS_DRIVER := true
+
 include project/imx8-inc.mk

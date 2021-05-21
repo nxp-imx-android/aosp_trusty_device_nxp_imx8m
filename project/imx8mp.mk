@@ -16,7 +16,7 @@
 
 TARGET := imx8mp
 
-#WITH_SNVS_DRIVER := true
+WITH_SNVS_DRIVER := true
 
 #Enlarge imx8mp storage size to 2048 blocks.
 STORAGE_RPMB_BLOCK_COUNT = 2048
