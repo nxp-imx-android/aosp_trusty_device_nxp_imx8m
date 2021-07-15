@@ -144,6 +144,10 @@ APPLOADER_SIGN_KEY_ID ?= 0
 # This project requires trusty IPC
 WITH_TRUSTY_IPC := true
 
+# Set the storage service port to STORAGE_CLIENT_TP_PORT
+# to support factory reset protection.
+GATEKEEPER_STORAGE_PORT := STORAGE_CLIENT_TP_PORT
+
 # Build unittests.
 ifeq (true,$(call TOBOOL,$(BUILD_UNITTEST)))
 # include both the kerneltests and usertests may make the bootloader exceed
