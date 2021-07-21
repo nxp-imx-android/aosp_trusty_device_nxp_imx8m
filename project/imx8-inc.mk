@@ -115,6 +115,7 @@ TRUSTY_PREBUILT_USER_TASKS :=
 TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/avb \
 	trusty/hardware/nxp/app/hwcrypto \
+	trusty/hardware/nxp/app/hwaes \
 	trusty/user/app/keymaster \
 	trusty/user/app/gatekeeper \
 	trusty/user/base/app/apploader \
