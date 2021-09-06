@@ -25,9 +25,11 @@ MEMBASE           := 0xBE000000
 include project/imx8-inc.mk
 
 TRUSTY_BUILTIN_USER_TASKS += \
-	trusty/user/app/confirmationui \
 	trusty/hardware/nxp/app/secure_fb_impl \
 	trusty/hardware/nxp/app/hwsecure
+
+TRUSTY_LOADABLE_USER_TASKS += \
+	trusty/user/app/confirmationui
 
 WITH_TUI_SUPPORT := true
 

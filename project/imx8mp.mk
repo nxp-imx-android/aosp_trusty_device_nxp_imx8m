@@ -26,8 +26,10 @@ include project/imx8-inc.mk
 
 TRUSTY_BUILTIN_USER_TASKS += \
     trusty/hardware/nxp/app/hwsecure \
-    trusty/user/app/confirmationui \
     trusty/hardware/nxp/app/secure_fb_impl \
+
+TRUSTY_LOADABLE_USER_TASKS += \
+	trusty/user/app/confirmationui
 
 # Change this to specify the LCDIF device on imx8mp
 GLOBAL_DEFINES += IMX8MP_LCDIF_INDEX=1
