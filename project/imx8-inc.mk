@@ -120,6 +120,7 @@ TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/base/app/apploader \
 	trusty/user/app/storage \
 	trusty/user/base/app/system_state_server_static \
+	trusty/user/app/sample/hwbcc \
 
 APPLOADER_ALLOW_NS_CONNECT := true
 
