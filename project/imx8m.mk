@@ -21,4 +21,10 @@ MEMBASE           := 0xFE000000
 
 WITH_SNVS_DRIVER := true
 
+ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
+TRUSTY_LOADABLE_USER_TASKS += \
+    trusty/private/widevine/hwoemcrypto
+
+endif
+
 include project/imx8-inc.mk
