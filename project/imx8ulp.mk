@@ -18,7 +18,7 @@ TARGET := imx8ulp
 
 #Enlarge imx8ulp storage size to 2048 blocks.
 STORAGE_RPMB_BLOCK_COUNT = 2048
-MEMBASE           := 0x96000000
+MEMBASE           := 0xa6000000
 IMX_USE_LPUART := true
 SMP_MAX_CPUS := 2
 
