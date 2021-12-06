@@ -24,7 +24,8 @@ WITH_SNVS_DRIVER := true
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_LOADABLE_USER_TASKS += \
     trusty/private/widevine/hwoemcrypto
-
+WITH_VPU_DECODER_DRIVER := true
+WITH_VPU_ENCODER_DRIVER := false
 endif
 
 include project/imx8-inc.mk

@@ -41,6 +41,6 @@ CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_LOADABLE_USER_TASKS += \
     trusty/private/widevine/hwoemcrypto
-
-WITH_VPU_DRIVER := true
+WITH_VPU_DECODER_DRIVER := true
+WITH_VPU_ENCODER_DRIVER := true
 endif
