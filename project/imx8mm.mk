@@ -31,6 +31,6 @@ TRUSTY_BUILTIN_USER_TASKS += \
 TRUSTY_LOADABLE_USER_TASKS += \
 	trusty/user/app/confirmationui
 
-WITH_TUI_SUPPORT := true
+WITH_LCDIF_SUPPORT := true
 
 CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params

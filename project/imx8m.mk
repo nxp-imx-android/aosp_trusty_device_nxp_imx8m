@@ -21,6 +21,8 @@ MEMBASE           := 0xFE000000
 
 WITH_SNVS_DRIVER := true
 
+include project/imx8-inc.mk
+
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_LOADABLE_USER_TASKS += \
     trusty/private/widevine/hwoemcrypto
@@ -28,4 +30,13 @@ WITH_VPU_DECODER_DRIVER := true
 WITH_VPU_ENCODER_DRIVER := false
 endif
 
-include project/imx8-inc.mk
+TRUSTY_BUILTIN_USER_TASKS += \
+    trusty/hardware/nxp/app/secure_fb_impl \
+    trusty/hardware/nxp/app/hwsecure
+
+TRUSTY_LOADABLE_USER_TASKS += \
+    trusty/user/app/confirmationui
+
+WITH_DCSS_SUPPORT := true
+
+CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params

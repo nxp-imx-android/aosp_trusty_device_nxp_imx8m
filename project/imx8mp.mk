@@ -34,7 +34,7 @@ TRUSTY_LOADABLE_USER_TASKS += \
 # Change this to specify the LCDIF device on imx8mp
 GLOBAL_DEFINES += IMX8MP_LCDIF_INDEX=1
 
-WITH_TUI_SUPPORT := true
+WITH_LCDIF_SUPPORT := true
 
 CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
 
