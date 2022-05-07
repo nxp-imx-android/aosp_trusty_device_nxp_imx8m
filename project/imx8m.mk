@@ -26,9 +26,10 @@ include project/imx8-inc.mk
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_LOADABLE_USER_TASKS += \
     trusty/private/widevine/hwoemcrypto
+endif
+
 WITH_VPU_DECODER_DRIVER := true
 WITH_VPU_ENCODER_DRIVER := false
-endif
 
 TRUSTY_BUILTIN_USER_TASKS += \
     trusty/hardware/nxp/app/secure_fb_impl \
