@@ -72,6 +72,39 @@ GLOBAL_DEFINES += HEAP_GROW_SIZE=0x400000
 # limit physical memory to 38 bit to prevert tt_trampiline from getting larger than arm64_kernel_translation_table
 GLOBAL_DEFINES += MMU_IDENT_SIZE_SHIFT=38
 
+# enable LTO in user-tasks modules
+USER_LTO_ENABLED ?= true
+
+# enable LTO in kernel modules
+KERNEL_LTO_ENABLED ?= true
+
+# enable cfi in trusty modules
+USER_CFI_ENABLED ?= true
+KERNEL_CFI_ENABLED ?= true
+
+ifeq ($(shell expr $(DEBUG) \>= 2), 1)
+CFI_DIAGNOSTICS ?= true
+endif
+
+# disable UBSan by default
+UBSAN_ENABLED ?= false
+ifeq (true,$(call TOBOOL,$(UBSAN_ENABLED)))
+include trusty/kernel/lib/ubsan/enable.mk
+endif
+
+ifeq (false,$(call TOBOOL,$(KERNEL_32BIT)))
+KERNEL_SCS_ENABLED ?= true
+ifeq (false,$(call TOBOOL,$(USER_32BIT)))
+# enable shadow call stack in user-tasks modules
+USER_SCS_ENABLED ?= true
+endif
+endif
+
+# fall back to user-space stack protector if user-space SCS is off
+ifneq (true,$(call TOBOOL,$(USER_SCS_ENABLED)))
+USER_STACK_PROTECTOR ?= true
+endif
+
 STORAGE_RPMB_BLOCK_COUNT ?= 256
 # Set max RPMB block to 256 means it will get 256*512=128KB space to store critical information.
 GLOBAL_DEFINES += APP_STORAGE_RPMB_BLOCK_COUNT=$(STORAGE_RPMB_BLOCK_COUNT)
@@ -162,4 +195,4 @@ ifeq (true,$(call TOBOOL,$(BUILD_UNITTEST)))
 include trusty/user/base/usertests-inc.mk
 endif
 
-EXTRA_BUILDRULES += app/trusty/user-tasks.mk
+EXTRA_BUILDRULES += trusty/kernel/app/trusty/user-tasks.mk
