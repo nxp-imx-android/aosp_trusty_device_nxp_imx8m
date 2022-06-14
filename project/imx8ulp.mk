@@ -23,3 +23,14 @@ IMX_USE_LPUART := true
 SMP_MAX_CPUS := 2
 
 include project/imx8-inc.mk
+
+TRUSTY_BUILTIN_USER_TASKS += \
+    trusty/hardware/nxp/app/secure_fb_impl \
+    trusty/hardware/nxp/app/hwsecure
+
+TRUSTY_LOADABLE_USER_TASKS += \
+    trusty/user/app/confirmationui
+
+WITH_DCNANO_SUPPORT := true
+
+CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
