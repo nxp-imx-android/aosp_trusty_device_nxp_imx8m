@@ -26,7 +26,9 @@ include project/imx8-inc.mk
 
 TRUSTY_BUILTIN_USER_TASKS += \
     trusty/hardware/nxp/app/secure_fb_impl \
-    trusty/hardware/nxp/app/hwsecure
+    trusty/hardware/nxp/app/hwsecure \
+    trusty/hardware/nxp/app/secureime \
+    trusty/user/base/app/hwsecure_client \
 
 TRUSTY_LOADABLE_USER_TASKS += \
     trusty/user/app/confirmationui
