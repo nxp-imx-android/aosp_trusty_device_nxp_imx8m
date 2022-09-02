@@ -23,9 +23,13 @@ WITH_SNVS_DRIVER := true
 
 include project/imx8-inc.mk
 
+WTPI_BUILD_INFO := TRUSTY_IMX8
+
+WIDEVINE_PROVISION_METHOD := 2
+
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_LOADABLE_USER_TASKS += \
-    trusty/private/widevine/hwoemcrypto
+    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta
 endif
 
 WITH_VPU_DECODER_DRIVER := true
@@ -33,7 +37,8 @@ WITH_VPU_ENCODER_DRIVER := false
 
 TRUSTY_BUILTIN_USER_TASKS += \
     trusty/hardware/nxp/app/secure_fb_impl \
-    trusty/hardware/nxp/app/hwsecure
+    trusty/hardware/nxp/app/hwsecure \
+    trusty/user/base/app/hwsecure_client \
 
 TRUSTY_LOADABLE_USER_TASKS += \
     trusty/user/app/confirmationui
