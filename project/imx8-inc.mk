@@ -145,6 +145,11 @@ TRUSTY_USER_ARCH := arm64
 TRUSTY_PREBUILT_USER_TASKS :=
 
 # compiled from source
+ifeq (true,$(call TOBOOL,$(BUILD_MATTER)))
+TRUSTY_BUILTIN_USER_TASKS := \
+	trusty/hardware/nxp/app/hwcrypto \
+	trusty/user/app/storage
+else
 TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/avb \
 	trusty/hardware/nxp/app/hwcrypto \
@@ -154,6 +159,8 @@ TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/storage \
 	trusty/user/base/app/system_state_server_static \
 	trusty/user/app/sample/hwbcc \
+
+endif
 
 APPLOADER_ALLOW_NS_CONNECT := true
 

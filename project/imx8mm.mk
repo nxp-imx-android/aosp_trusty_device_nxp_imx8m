@@ -24,6 +24,10 @@ MEMBASE           := 0xBE000000
 
 include project/imx8-inc.mk
 
+ifeq (true,$(call TOBOOL,$(BUILD_MATTER)))
+TRUSTY_BUILTIN_USER_TASKS += \
+	trusty/hardware/nxp/app/matter
+else
 TRUSTY_BUILTIN_USER_TASKS += \
 	trusty/hardware/nxp/app/secure_fb_impl \
 	trusty/hardware/nxp/app/hwsecure
@@ -34,3 +38,4 @@ TRUSTY_LOADABLE_USER_TASKS += \
 WITH_LCDIF_SUPPORT := true
 
 CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
+endif
