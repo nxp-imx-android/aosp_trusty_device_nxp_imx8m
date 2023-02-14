@@ -26,3 +26,5 @@ MEMBASE           := 0xFE000000
 WITH_CAAM_SUPPORT := true
 
 include project/imx8-inc.mk
+
+GLOBAL_DEFINES += IMX8QXP=1
