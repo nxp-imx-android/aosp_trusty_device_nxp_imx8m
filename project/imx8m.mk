@@ -21,6 +21,9 @@ MEMBASE           := 0xFE000000
 
 WITH_SNVS_DRIVER := true
 
+# caam support
+WITH_CAAM_SUPPORT := true
+
 include project/imx8-inc.mk
 
 WTPI_BUILD_INFO := TRUSTY_IMX8

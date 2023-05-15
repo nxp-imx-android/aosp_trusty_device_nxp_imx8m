@@ -1,5 +1,5 @@
 # Copyright (C) 2015 The Android Open Source Project
-# Copyright NXP 2018
+# Copyright NXP 2023
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,16 +14,25 @@
 # limitations under the License.
 #
 
-TARGET := imx8q
+TARGET := imx93
 
-# imx8q/x use lpuart for UART IP
+#Enlarge imx93 storage size to 2048 blocks.
+STORAGE_RPMB_BLOCK_COUNT = 2048
+MEMBASE           := 0x96000000
 IMX_USE_LPUART := true
+SMP_MAX_CPUS := 2
 
-SMP_MAX_CPUS := 6
-STORAGE_RPMB_BLOCK_COUNT := 2048
-MEMBASE           := 0xFE000000
-
-# caam support
-WITH_CAAM_SUPPORT := true
+# ELE support
+WITH_ELE_SUPPORT := true
 
 include project/imx8-inc.mk
+
+ifeq (true,$(call TOBOOL,$(BUILD_MATTER)))
+TRUSTY_BUILTIN_USER_TASKS += \
+	trusty/hardware/nxp/app/matter
+endif
+
+TRUSTY_BUILTIN_USER_TASKS += \
+    trusty/user/app/sample/hwaes
+
+GLOBAL_DEFINES += GIC600=1

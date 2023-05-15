@@ -22,6 +22,9 @@ MEMBASE           := 0xa6000000
 IMX_USE_LPUART := true
 SMP_MAX_CPUS := 2
 
+# caam support
+WITH_CAAM_SUPPORT := true
+
 include project/imx8-inc.mk
 
 TRUSTY_BUILTIN_USER_TASKS += \

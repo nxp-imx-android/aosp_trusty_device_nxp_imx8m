@@ -125,6 +125,12 @@ GLOBAL_DEFINES += ARM_GIC_USE_SYSTEM_REG=1
 # include software implementation of a SPI loopback device
 WITH_SW_SPI_LOOPBACK ?= true
 
+# CAAM support
+WITH_CAAM_SUPPORT ?= false
+
+# ELE support
+WITH_ELE_SUPPORT ?= false
+
 #
 # Modules to be compiled into lk.bin
 #
@@ -134,6 +140,7 @@ MODULES += \
 	trusty/kernel/lib/memlog \
 	trusty/kernel/services/smc \
 	trusty/kernel/services/apploader \
+	trusty/kernel/services/hwrng \
 
 TRUSTY_USER_ARCH := arm64
 

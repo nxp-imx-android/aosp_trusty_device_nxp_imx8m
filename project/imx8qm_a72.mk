@@ -16,4 +16,8 @@
 
 BOOT_FROM_A72 := true
 MEMBASE           := 0xFE000000
+
+# caam support
+WITH_CAAM_SUPPORT := true
+
 include project/imx8qm.mk

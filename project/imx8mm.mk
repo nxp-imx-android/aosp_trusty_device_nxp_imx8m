@@ -22,6 +22,9 @@ WITH_SNVS_DRIVER := true
 STORAGE_RPMB_BLOCK_COUNT = 2048
 MEMBASE           := 0xBE000000
 
+# caam support
+WITH_CAAM_SUPPORT := true
+
 include project/imx8-inc.mk
 
 ifeq (true,$(call TOBOOL,$(BUILD_MATTER)))
