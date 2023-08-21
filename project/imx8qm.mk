@@ -44,9 +44,5 @@ WIDEVINE_PROVISION_METHOD := 2
 
 TRUSTY_LOADABLE_USER_TASKS += \
     trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta
-else
-TRUSTY_BUILTIN_USER_TASKS += \
-    trusty/hardware/nxp/app/widevine_l3 \
-
 endif
 
