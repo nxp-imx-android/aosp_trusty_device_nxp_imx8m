@@ -25,24 +25,8 @@ MEMBASE           := 0xFE000000
 
 # caam support
 WITH_CAAM_SUPPORT := true
-WITH_SCFW_DRIVER := true
-WITH_AMPHION_DRIVER := true
 
 include project/imx8-inc.mk
 
 GLOBAL_DEFINES += IMX8QM=1
-
-TRUSTY_BUILTIN_USER_TASKS += \
-    trusty/hardware/nxp/app/hwsecure \
-    trusty/user/base/app/hwsecure_client \
-    trusty/hardware/nxp/app/firmware_loader \
-
-ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
-WTPI_BUILD_INFO := TRUSTY_IMX8
-
-WIDEVINE_PROVISION_METHOD := 2
-
-TRUSTY_LOADABLE_USER_TASKS += \
-    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta
-endif
 
