@@ -32,8 +32,6 @@ TRUSTY_BUILTIN_USER_TASKS += \
     trusty/hardware/nxp/app/secure_fb_impl \
     trusty/user/base/app/hwsecure_client \
 
-WTPI_BUILD_INFO := TRUSTY_IMX8
-
 TRUSTY_LOADABLE_USER_TASKS += \
         trusty/user/app/confirmationui
 
@@ -42,13 +40,13 @@ GLOBAL_DEFINES += IMX8MP_LCDIF_INDEX=1
 
 WITH_LCDIF_SUPPORT := true
 
-WIDEVINE_PROVISION_METHOD := 2
+TRUSTY_PROVISIONING_METHOD := OEMCrypto_Keybox
 
 CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
 
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_LOADABLE_USER_TASKS += \
-    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta
+    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta/reference
 endif
 
 WITH_VPU_DECODER_DRIVER := true

@@ -38,11 +38,10 @@ TRUSTY_BUILTIN_USER_TASKS += \
     trusty/hardware/nxp/app/firmware_loader \
 
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
-WTPI_BUILD_INFO := TRUSTY_IMX8
 
-WIDEVINE_PROVISION_METHOD := 2
+TRUSTY_PROVISIONING_METHOD := OEMCrypto_Keybox
 
 TRUSTY_LOADABLE_USER_TASKS += \
-    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta
+    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta/reference
 endif
 

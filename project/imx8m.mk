@@ -26,13 +26,11 @@ WITH_CAAM_SUPPORT := true
 
 include project/imx8-inc.mk
 
-WTPI_BUILD_INFO := TRUSTY_IMX8
-
-WIDEVINE_PROVISION_METHOD := 2
+TRUSTY_PROVISIONING_METHOD := OEMCrypto_Keybox
 
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_LOADABLE_USER_TASKS += \
-    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta
+    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta/reference
 endif
 
 WITH_VPU_DECODER_DRIVER := true
