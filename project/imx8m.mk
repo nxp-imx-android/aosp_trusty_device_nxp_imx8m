@@ -24,6 +24,9 @@ WITH_SNVS_DRIVER := true
 # caam support
 WITH_CAAM_SUPPORT := true
 
+# customized secure ui support
+WITH_CUSTOMIZED_SECURE_UI := false
+
 include project/imx8-inc.mk
 
 TRUSTY_PROVISIONING_METHOD := OEMCrypto_Keybox
