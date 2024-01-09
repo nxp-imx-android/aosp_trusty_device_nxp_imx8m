@@ -165,7 +165,7 @@ else
 TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/avb \
 	trusty/hardware/nxp/app/hwcrypto \
-	trusty/user/app/keymaster \
+	trusty/user/app/keymint/app \
 	trusty/user/app/gatekeeper \
 	trusty/user/base/app/apploader \
 	trusty/user/app/storage \
@@ -204,6 +204,10 @@ WITH_TRUSTY_IPC := true
 # Set the storage service port to STORAGE_CLIENT_TP_PORT
 # to support factory reset protection.
 GATEKEEPER_STORAGE_PORT := STORAGE_CLIENT_TP_PORT
+
+# Allow provisioning at boot stage.
+# This flag should be set to "0" in production.
+STATIC_SYSTEM_STATE_FLAG_PROVISIONING_ALLOWED := 2
 
 # Build unittests.
 ifeq (true,$(call TOBOOL,$(BUILD_UNITTEST)))
