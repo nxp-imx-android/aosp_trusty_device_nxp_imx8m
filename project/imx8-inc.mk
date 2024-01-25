@@ -209,6 +209,8 @@ GATEKEEPER_STORAGE_PORT := STORAGE_CLIENT_TP_PORT
 # This flag should be set to "0" in production.
 STATIC_SYSTEM_STATE_FLAG_PROVISIONING_ALLOWED := 2
 
+TRUSTY_KM_WITH_HWWSK_SUPPORT := false
+
 # Build unittests.
 ifeq (true,$(call TOBOOL,$(BUILD_UNITTEST)))
 # include both the kerneltests and usertests may make the bootloader exceed
