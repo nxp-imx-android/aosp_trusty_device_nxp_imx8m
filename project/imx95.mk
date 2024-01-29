@@ -27,7 +27,4 @@ WITH_ELE_SUPPORT := true
 
 include project/imx8-inc.mk
 
-TRUSTY_BUILTIN_USER_TASKS += \
-    trusty/user/app/sample/hwaes
-
 GLOBAL_DEFINES += GIC600=1
