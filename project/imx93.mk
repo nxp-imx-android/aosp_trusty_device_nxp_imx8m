@@ -32,7 +32,4 @@ TRUSTY_BUILTIN_USER_TASKS += \
 	trusty/hardware/nxp/app/matter
 endif
 
-TRUSTY_BUILTIN_USER_TASKS += \
-    trusty/user/app/sample/hwaes
-
 GLOBAL_DEFINES += GIC600=1
