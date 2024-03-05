@@ -28,3 +28,17 @@ WITH_ELE_SUPPORT := true
 include project/imx8-inc.mk
 
 GLOBAL_DEFINES += GIC600=1
+
+GLOBAL_DEFINES += PLATFORM_USE_BGRA=1
+
+WITH_DPU_SUPPORT := true
+
+TRUSTY_BUILTIN_USER_TASKS += \
+        trusty/hardware/nxp/app/hwsecure \
+        trusty/hardware/nxp/app/secure_fb_impl \
+        trusty/user/base/app/hwsecure_client \
+
+TRUSTY_LOADABLE_USER_TASKS += \
+        trusty/user/app/confirmationui
+
+CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
