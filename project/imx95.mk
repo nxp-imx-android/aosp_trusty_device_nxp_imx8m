@@ -30,13 +30,24 @@ include project/imx8-inc.mk
 GLOBAL_DEFINES += GIC600=1
 
 WITH_DPU_SUPPORT := true
+WITH_WAVE6_SUPPORT := true
 
 TRUSTY_BUILTIN_USER_TASKS += \
         trusty/hardware/nxp/app/hwsecure \
         trusty/hardware/nxp/app/secure_fb_impl \
         trusty/user/base/app/hwsecure_client \
+        trusty/hardware/nxp/app/firmware_loader \
 
 TRUSTY_LOADABLE_USER_TASKS += \
         trusty/user/app/confirmationui
 
 CONFIRMATIONUI_DEVICE_PARAMS := trusty/hardware/nxp/user/lib/tui_device_params
+
+TRUSTY_PROVISIONING_METHOD := OEMCrypto_Keybox
+ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
+TRUSTY_LOADABLE_USER_TASKS += \
+    trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta/reference
+endif
+
+GLOBAL_DEFINES += \
+    USE_IMX_MONOTONIC_TIME=1
