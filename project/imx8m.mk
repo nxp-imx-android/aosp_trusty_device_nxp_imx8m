@@ -34,6 +34,8 @@ TRUSTY_PROVISIONING_METHOD := OEMCrypto_Keybox
 ifeq (true,$(call TOBOOL,$(BUILD_WIDEVINE)))
 TRUSTY_LOADABLE_USER_TASKS += \
     trusty/private/oemcrypto/oemcrypto/opk/ports/trusty/ta/reference
+
+NEED_PARSE_HEADER := true
 endif
 
 WITH_VPU_DECODER_DRIVER := true
