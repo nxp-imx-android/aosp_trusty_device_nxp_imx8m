@@ -171,6 +171,7 @@ TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/storage \
 	trusty/user/base/app/system_state_server_static \
 	trusty/user/app/sample/hwbcc \
+	trusty/user/app/secretkeeper/app
 
 endif
 
